@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Bodega</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <nav class="bg-indigo-900 text-white p-4 flex justify-between">
+        <h1 class="font-bold">Panel de Bodega</h1>
+        <button id="btnLogout" class="text-sm underline">Cerrar Sesión</button>
+    </nav>
+
+    <main class="container mx-auto p-6">
+        
+        <div class="bg-white p-6 rounded shadow mb-8">
+            <h2 class="font-bold text-lg mb-4 text-indigo-700">Registrar Nuevo Producto</h2>
+            <form id="newProductForm" class="grid grid-cols-5 gap-4 items-end">
+                <input type="text" id="newCode" placeholder="Código (ej: P999)" class="border p-2 rounded" required>
+                <input type="text" id="newName" placeholder="Nombre del Producto" class="border p-2 rounded" required>
+                <input type="number" id="newPrice" placeholder="Precio" step="0.01" class="border p-2 rounded" required>
+                <input type="number" id="newStock" placeholder="Stock Inicial" class="border p-2 rounded" required>
+                <button type="submit" class="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">Guardar</button>
+            </form>
+        </div>
+
+        <div class="bg-white rounded shadow overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="p-3 border-b">Código</th>
+                        <th class="p-3 border-b">Producto</th>
+                        <th class="p-3 border-b">Precio</th>
+                        <th class="p-3 border-b">Stock Actual</th>
+                        <th class="p-3 border-b">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTable">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script type="module" src="bodega.js"></script>
+</body>
+</html>
